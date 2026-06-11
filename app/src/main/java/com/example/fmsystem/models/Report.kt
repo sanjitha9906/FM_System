@@ -1,0 +1,9 @@
+package com.example.fmsystem.models
+
+data class Report(
+    val id: Int,
+    val date: String,
+    val fetalHeartRate: Int,
+    val motherHeartRate: Int,
+    val status: String
+)
