@@ -5,5 +5,7 @@ data class Report(
     val date: String,
     val fetalHeartRate: Int,
     val motherHeartRate: Int,
+    val headCircumference: Float,
+    val movementCount: Int,
     val status: String
 )

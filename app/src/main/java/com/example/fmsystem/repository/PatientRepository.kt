@@ -1,12 +1,63 @@
 package com.example.fmsystem.repository
 
-import com.example.fmsystem.api.ApiClient
+import androidx.compose.runtime.mutableStateOf
 import com.example.fmsystem.models.Patient
 
-class PatientRepository {
+object PatientRepository {
 
-    suspend fun savePatient(patient: Patient): Boolean {
-        val response = ApiClient.apiService.savePatient(patient)
-        return response.isSuccessful
+    val patient = mutableStateOf(Patient())
+
+    fun savePatient(patientData: Patient) {
+        patient.value = patientData
     }
+
+    fun updatePhone(phone: String) {
+        patient.value = patient.value.copy(
+            phone = phone
+        )
+    }
+
+    fun updateAddress(address: String) {
+        patient.value = patient.value.copy(
+            address = address
+        )
+    }
+
+    fun updateEmergencyContact(contact: String) {
+        patient.value = patient.value.copy(
+            emergencyContact = contact
+        )
+    }
+
+    fun addMedicalCondition(condition: String) {
+
+        if (
+            condition.isNotBlank() &&
+            patient.value.medicalHistory.size < 5
+        ) {
+
+            val list = patient.value.medicalHistory.toMutableList()
+
+            list.add(condition)
+
+            patient.value = patient.value.copy(
+                medicalHistory = list
+            )
+
+        }
+
+    }
+
+    fun removeMedicalCondition(condition: String) {
+
+        val list = patient.value.medicalHistory.toMutableList()
+
+        list.remove(condition)
+
+        patient.value = patient.value.copy(
+            medicalHistory = list
+        )
+
+    }
+
 }

@@ -3,7 +3,6 @@ package com.example.fmsystem.models
 data class MonitoringData(
     val fetalHeartRate: Int = 0,
     val motherHeartRate: Int = 0,
-    val temperature: Float = 0f,
-    val movementCount: Int = 0,
-    val status: String = "Normal"
+    val headCircumference: Float = 0f,
+    val movementCount: Int = 0
 )

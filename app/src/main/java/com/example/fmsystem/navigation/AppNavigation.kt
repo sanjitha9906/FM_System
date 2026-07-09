@@ -11,6 +11,7 @@ import com.example.fmsystem.screens.dashboard.DashboardScreen
 import com.example.fmsystem.screens.monitoring.MonitoringScreen
 import com.example.fmsystem.screens.profile.PatientProfileScreen
 import com.example.fmsystem.screens.reports.ReportsScreen
+import com.example.fmsystem.screens.profile.ProfileScreen
 import com.example.fmsystem.screens.settings.SettingsScreen
 import com.example.fmsystem.screens.splash.SplashScreen
 
@@ -23,6 +24,8 @@ object Routes {
     const val DASHBOARD = "dashboard"
     const val MONITORING = "monitoring"
     const val REPORTS = "reports"
+
+    const val PROFILE = "profile"
     const val SETTINGS = "settings"
 }
 
@@ -64,6 +67,10 @@ fun AppNavigation() {
 
         composable(Routes.REPORTS) {
             ReportsScreen(navController)
+        }
+
+        composable(Routes.PROFILE) {
+            ProfileScreen(navController)
         }
 
         composable(Routes.SETTINGS) {
